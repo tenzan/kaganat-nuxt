@@ -25,7 +25,7 @@ export default {
   },
   async mounted() {
     try {
-      const response = await axios.get('/categories')
+      const response = await this.$axios.get('/categories')
       this.categories = response.data
     } catch (error) {
       this.error = error
