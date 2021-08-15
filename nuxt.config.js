@@ -26,7 +26,6 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/strapi',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -35,6 +34,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/strapi',
   ],
   strapi: {
     entities: ['restaurants', 'categories'],
@@ -43,6 +43,12 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  publicRuntimeConfig: {
+    axios: {
+      baseURL: process.env.API_URL,
+    },
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

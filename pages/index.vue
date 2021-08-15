@@ -8,10 +8,13 @@
         {{ category.name }}
       </li>
     </ul>
+    <Nuxt />
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'App',
   data() {
@@ -22,7 +25,8 @@ export default {
   },
   async mounted() {
     try {
-      this.categories = await this.$strapi.$categories.find()
+      const response = await axios.get('/categories')
+      this.categories = response.data
     } catch (error) {
       this.error = error
     }
